@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: kgoro_user
+      POSTGRES_PASSWORD: ChangeMe_StrongPassword
+      POSTGRES_DB: kgoro
+    ports:
+      - "5432:5432"
+    volumes:
+      - kgoro_pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+volumes:
+  kgoro_pgdata:
