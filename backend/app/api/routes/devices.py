@@ -1,10 +1,11 @@
-﻿from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from backend.app.api.deps import get_db
 from backend.app.models.device import Device
 from backend.app.schemas.device import DeviceCreate, DeviceOut, DeviceUpdate
+from backend.app.api.auth_deps import require_role
 
 router = APIRouter(prefix="/devices", tags=["devices"])
 
